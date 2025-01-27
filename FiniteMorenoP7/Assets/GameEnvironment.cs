@@ -18,6 +18,8 @@ public sealed class GameEnvironment
                 instance = new GameEnvironment();
                 instance.Checkpoints.AddRange(
                     GameObject.FindGameObjectsWithTag("Checkpoint"));
+
+                instance.checkpoints = instance.checkpoints.OrderBy(waypoint => waypoint.name).ToList();
             }
             return instance;
         }
